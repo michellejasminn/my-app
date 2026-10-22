@@ -4,14 +4,14 @@ body {
         }
             font-family: "Times New Roman", Times, serif, sans-serif;
             margin: 15px;
-            color: rgb(57, 10, 10);
-            background-color: rgb(202, 159, 230);
+            color: #4a2f3a;
+            background-color: #ffa6bb;
         }
         form {
             max-width: 400px;
             margin: 20px auto;
             width: 300px;
-            border: 15px double rgb(185, 87, 200);
+            border: 15px double #ffc9d4;
             border-radius: 15px;
             padding: 30px 40px;
             margin: 20px auto;
@@ -23,7 +23,7 @@ body {
         label {
             display: block;
             margin-bottom: 5px;
-            color: rgb(69, 7, 7);
+            color: #a06c7d;
             font-size: 12px;
             font-family: "Times New Roman", Times, serif, sans-serif;
         }
@@ -34,8 +34,8 @@ body {
         }
         button {
             padding: 10px 20px;
-            background-color: #2d001b;
-            color: rgb(231, 156, 204);
+            background-color: #ff69b4;
+            color: #ffe9ed;
             border: none;
             cursor: pointer;
             font-family: "Times New Roman", Times, serif, sans-serif;

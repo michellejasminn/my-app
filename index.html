@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Loan Application<h1>
+    <h1>Loan Application</h1>
     <form>
         <div>
             <label>Name:</label>
@@ -15,15 +15,86 @@
 
         <div>
             <label>Age:</label>
-            <input type="text">
+            <input type="text" id="age"
+            value="">
         </div>
         
         <div>
             <label>Monthly Income:</label>
-            <input type="text">
+            <input type="text" id="monthly-income"
+            value="">
+        </div>
+        
+
+        <div>
+            <label>Loan Amount:</label>
+            <input type="text" id="loan-amount">
+        </div>
+        
+        <div>
+            <label>Debt Ratio (%):</label>
+            <input type="text" id="debt-ratio">
         </div>
 
-        <button type="submit">Submit</button>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+        
+        
     </form>
+
+    <script>
+        let age = 
+    Number(document.getElementById("age").value);
+    console.log("Age:", age);
+    let monthlyIncome = 
+    Number(document.getElementById("monthly-income").value);
+    console.log("Monthly Income:", monthlyIncome);
+     let loanAmount = 
+    Number(document.getElementById("loan-amount").value);
+    console.log("Loan Amount:", loanAmount);
+     let debtRatio = 
+    Number(document.getElementById("debt-ratio").value);
+    console.log("Debt Ratio:", debtRatio);
+
+    
+    
+    if (age < 21) { //Age must be >= 21. 
+        alert("You are not eligible for a loan.");
+    } else if (monthlyIncome < 2000) { //Monthly income must be >= Rp5,000,000. 
+        alert("You are not eligible for a loan.");
+    } else if (loanAmount > 5 * monthlyIncome) { //Loan amount cannot exceed 5 × monthly income.
+        alert("You are not eligible for a loan.");
+    } else if (debtRatio > 40) { //Debt ratio must be below 70%.
+        alert("You are not eligible for a loan.");
+    } else {
+        alert("You are eligible for a loan.");
+    }
+
+    // if (age > 21) {
+    //    alert(" You are not eligible for a loan.");
+    // } else {
+    //     alert   ("You are eligible for a loan.");
+    // }
+
+    // if (monthlyIncome < 2000) {
+    //     alert("You are not eligible for a loan.");
+    // } else {
+    //     alert("You are eligible for a loan.");
+    // }
+
+    // if (loanAmount > 50000) {
+    //     alert("You are not eligible for a loan.");
+    // } else {
+    //     alert("You are eligible for a loan.");
+    // }
+
+    // if (debtRatio > 40 ) {
+    //     alert("You are not eligible for a loan.");
+    // } else {
+    //     alert("You are eligible for a loan.");
+    // }
+    </script>
 </body>
 </html>
