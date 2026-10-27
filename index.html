@@ -2,99 +2,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World App</title>
+    <title>Loan Application</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Loan Application</h1>
-    <form>
+
+    <form name="loanForm" onsubmit="return validateForm()">
         <div>
             <label>Name:</label>
-            <input type="text">
+            <input type="text" name="name">
         </div>
 
         <div>
             <label>Age:</label>
-            <input type="text" id="age"
-            value="">
-        </div>
-        
-        <div>
-            <label>Monthly Income:</label>
-            <input type="text" id="monthly-income"
-            value="">
-        </div>
-        
-
-        <div>
-            <label>Loan Amount:</label>
-            <input type="text" id="loan-amount">
-        </div>
-        
-        <div>
-            <label>Debt Ratio (%):</label>
-            <input type="text" id="debt-ratio">
+            <input type="text" name="age">
         </div>
 
+        <div>
+            <label>Monthly Income (Rp):</label>
+            <input type="text" name="monthly-income">
+        </div>
 
         <div>
-            <button type="submit">Submit</button>
+            <label>Monthly Debt (Rp):</label>
+            <input type="text" name="monthly-debt">
         </div>
-        
-        
+
+        <div>
+            <label>Loan Amount Requested:(Rp)</label>
+            <input type="text" name="loan-amount">
+        </div>
+
+        <button type="submit">Submit</button>
     </form>
 
     <script>
-    let age = 
-    Number(document.getElementById("age").value);
-    console.log("Age:", age);
-    let monthlyIncome = 
-    Number(document.getElementById("monthly-income").value);
-    console.log("Monthly Income:", monthlyIncome);
-     let loanAmount = 
-    Number(document.getElementById("loan-amount").value);
-    console.log("Loan Amount:", loanAmount);
-     let debtRatio = 
-    Number(document.getElementById("debt-ratio").value);
-    console.log("Debt Ratio:", debtRatio);
+        function validateForm() {
+            let form = document.forms["loanForm"];
+            let age = Number(form.elements["age"].value);
+            let monthlyIncome = Number(form.elements["monthly-income"].value);
+            let monthlyDebt = Number(form.elements["monthly-debt"].value);
+            let loanAmount = Number(form.elements["loan-amount"].value);
 
-    
-    
-    if (age < 21) { //Age must be >= 21. 
-        alert("You are not eligible for a loan.");
-    } else if (monthlyIncome < 2000) { //Monthly income must be >= Rp5,000,000. 
-        alert("You are not eligible for a loan.");
-    } else if (loanAmount > 5 * monthlyIncome) { //Loan amount cannot exceed 5 × monthly income.
-        alert("You are not eligible for a loan.");
-    } else if (debtRatio > 40) { //Debt ratio must be below 70%.
-        alert("You are not eligible for a loan.");
-    } else {
-        alert("You are eligible for a loan.");
-    }
+            if (age < 21) {
+                alert("You are not eligible for a loan. (Minimum age is 21)");
+            } else if (monthlyIncome < 5000000) {
+                alert("You are not eligible for a loan. (Minimum income is Rp5,000,000)");
+            } else if (monthlyDebt > 0.7 * monthlyIncome) {
+                alert("You are not eligible for a loan. (Monthly debt exceeds 70% of monthly income)");
+            } else if (loanAmount > 5 * monthlyIncome) {
+                alert("You are not eligible for a loan. (Loan amount exceeds 5x monthly income)");
+            } else {
+                alert("You are eligible for a loan.");
+            }
 
-    // if (age > 21) {
-    //    alert(" You are not eligible for a loan.");
-    // } else {
-    //     alert   ("You are eligible for a loan.");
-    // }
-
-    // if (monthlyIncome < 2000) {
-    //     alert("You are not eligible for a loan.");
-    // } else {
-    //     alert("You are eligible for a loan.");
-    // }
-
-    // if (loanAmount > 50000) {
-    //     alert("You are not eligible for a loan.");
-    // } else {
-    //     alert("You are eligible for a loan.");
-    // }
-
-    // if (debtRatio > 40 ) {
-    //     alert("You are not eligible for a loan.");
-    // } else {
-    //     alert("You are eligible for a loan.");
-    // }
+            return false;
+        }
     </script>
 </body>
 </html>
